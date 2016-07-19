@@ -204,7 +204,7 @@ var Asteroid = cc.Sprite.extend({
       audioEngine.setEffectsVolume(audioEngine.getEffectsVolume() + 0.3);
       //効果音を再生する
     //  audioEngine.playEffect("res/se_bang.mp3");
-      audioEngine.playEffect(res.se_bang);
+    //  audioEngine.playEffect(res.se_bang);
       //bgmの再生をとめる
       if (audioEngine.isMusicPlaying()) {
         audioEngine.stopMusic();
