@@ -21,10 +21,18 @@ var gameThrust = 0.1;
 var emitter;
 var audioEngine;
 
+var miss = 0;
+var missText;
+
 var gameScene = cc.Scene.extend({
+
 
   onEnter: function() {
     this._super();
+    missText = cc.LabelTTF.create("Miss: 0" , "Arial", "32", cc.TEXT_ALIGNMENT_CENTER);
+    this.addChild(missText);
+    missText.setPosition(400 , 50);
+
 
     gameLayer = new game();
     gameLayer.init();
@@ -344,6 +352,14 @@ var Asteroid = cc.Sprite.extend({
       //効果音を再生する
     //  audioEngine.playEffect("res/se_bang.mp3");
     //  audioEngine.playEffect(res.se_bang);
+    miss++;
+
+missText.setString("Miss: " + miss);
+//3回ミス
+if (miss == 3) {
+  cc.director.runScene(new ResultScene());
+}
+
       //bgmの再生をとめる
       if (audioEngine.isMusicPlaying()) {
         audioEngine.stopMusic();

@@ -15,7 +15,9 @@ var res = {
     nagoya6_png : "res/nagoya6.png",
     bgm_main : "res/bgm_main.mp3",
     title_png : "res/Title.png",
-    start_png : "res/start.png"
+    start_png : "res/start.png",
+    gameover_png : "res/gameover.png",
+    replay_button_png : "res/replay_button"
 };
 
 var g_resources = [];
