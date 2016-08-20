@@ -19,7 +19,7 @@ var gameGravity = -0.05;
 var gameThrust = 0.1;
 //パーティクル
 var emitter;
-var　 audioEngine;
+var audioEngine;
 
 var gameScene = cc.Scene.extend({
 
@@ -29,6 +29,9 @@ var gameScene = cc.Scene.extend({
     gameLayer = new game();
     gameLayer.init();
     this.addChild(gameLayer);
+
+    //score
+
     //音楽再生エンジン
     audioEngine = cc.audioEngine;
     //bgm再生
@@ -45,6 +48,8 @@ var game = cc.Layer.extend({
   init: function() {
     this._super();
     size = cc.director.getWinSize();
+
+
     //BGMと効果音のエンジンを追加
 
     //宇宙船を操作するで追加した部分
@@ -57,7 +62,6 @@ var game = cc.Layer.extend({
         ship.engineOn = false;
       }
     }, this)
-
     //スクロールする背景スプライトをインスタンス　スクロール速度:scrollSpeed
     background = new ScrollingBG();
     this.addChild(background);
@@ -299,9 +303,27 @@ var Ship = cc.Sprite.extend({
 });
 //小惑星クラス
 var Asteroid = cc.Sprite.extend({
+  sprite: null,
+      // ブロックを保持しておく配列
+      dropSpriteArray: null,
+      // 配列の宣言　ブロックの名前を指定
+      dropArray: [res.nagoya0_png, res.nagoya1_png, res.nagoya2_png, res.nagoya3_png, res.nagoya4_png, res.nagoya5_png, res.nagoya6_png],
+
   ctor: function() {
     this._super();
-    this.initWithFile(res.asteroid_png);
+    var size = cc.director.getWinSize();
+
+          this.dropSpriteArray = new Array();
+          var i = 1;
+          for (i = 0; i < 1; i++) {
+              var rnd = Math.floor(Math.random() * 7);
+
+              this.sprite = new cc.Sprite(this.dropArray[rnd]);
+              cc.log(i);
+              cc.log(this.dropArray[i]);
+              this.dropSpriteArray.push(this.sprite)
+              this.addChild(this.dropSpriteArray[i], 0);
+      }
   },
   onEnter: function() {
     this._super();

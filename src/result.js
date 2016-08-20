@@ -1,4 +1,4 @@
-//title
+//result
 var ThirdLayer = cc.Layer.extend({
     ctor: function() {
         this._super();
