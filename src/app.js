@@ -345,7 +345,6 @@ var Ship = cc.Sprite.extend({
             //3回ミス
             if (miss == 3) {
                 cc.director.runScene(new ResultScene());
-            audioEngine.playEffect(res.se_death);
           }
 
             restartGame();
@@ -377,14 +376,13 @@ var Coral = cc.Sprite.extend({
             audioEngine.setEffectsVolume(audioEngine.getEffectsVolume() + 0.3);
             //効果音を再生する
             //  audioEngine.playEffect("res/se_bang.mp3");
-            //  audioEngine.playEffect(res.se_bang);
+              audioEngine.playEffect(res.se_bang);
 
             miss++;
             missText.setString("Miss: " + miss);
             //3回ミス
             if (miss == 3) {
                 cc.director.runScene(new ResultScene());
-                audioEngine.playEffect(res.se_death);
             }
 
 
@@ -445,7 +443,7 @@ var Asteroid = cc.Sprite.extend({
             audioEngine.setEffectsVolume(audioEngine.getEffectsVolume() + 0.3);
             //効果音を再生する
             //  audioEngine.playEffect("res/se_bang.mp3");
-              audioEngine.playEffect(res.se_bang);
+              audioEngine.playEffect(res.se_decide);
             score = score + 100;
             scoreText.setString("Score: " + score);
 
@@ -483,15 +481,14 @@ var Coral2 = cc.Sprite.extend({
             audioEngine.setEffectsVolume(audioEngine.getEffectsVolume() + 0.3);
             //効果音を再生する
             //  audioEngine.playEffect("res/se_bang.mp3");
-            //  audioEngine.playEffect(res.se_bang);
+             audioEngine.playEffect(res.se_bang);
 
             miss++;
             missText.setString("Miss: " + miss);
             //3回ミス
             if (miss == 3) {
                 cc.director.runScene(new ResultScene());
-                audioEngine.playEffect(res.se_death);
-            }
+                          }
 
 
             //bgmの再生をとめる
