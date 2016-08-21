@@ -465,7 +465,7 @@ var Coral2 = cc.Sprite.extend({
     },
     onEnter: function() {
         this._super();
-        this.setPosition(600, 580);
+        this.setPosition(600, -200);
         var moveAction = cc.MoveTo.create(5.5, new cc.Point(-100, 0));
         this.runAction(moveAction);
         this.scheduleUpdate();
