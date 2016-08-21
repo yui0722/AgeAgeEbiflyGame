@@ -5,7 +5,7 @@ var ResultLayer = cc.Layer.extend({
         var size = cc.director.getWinSize();
         // 画像の追加
         var sprite = cc.Sprite.create(res.gameover_png);
-        sprite.setPosition(size.width / 2, size.height / 2);
+        sprite.setPosition(size.width / 2, size.height * 5 / 6);
         sprite.setScale(0.8);
         this.addChild(sprite, 0);
 
@@ -13,6 +13,11 @@ var ResultLayer = cc.Layer.extend({
         sprite.setPosition(size.width / 2, size.height / 6);
         sprite.setScale(0.8);
         this.addChild(sprite, 1);
+
+        var label = cc.LabelTTF.create("Score:" + score, "Arial", 32);
+   label.setPosition(size.width / 2, size.height  / 2);
+   this.addChild(label, 1);
+
 
         // タップイベントリスナーを登録する
         cc.eventManager.addListener({

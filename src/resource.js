@@ -17,7 +17,11 @@ var res = {
     title_png : "res/Title.png",
     start_png : "res/start.png",
     gameover_png : "res/gameover.png",
-    replay_button_png : "res/replay_button"
+    replay_button_png : "res/replay_button.png",
+    coral_above_png : "res/coral_above.png",
+    coral_under_png : "res/coral_under.png",
+    se_bang: "res/se_surprise.mp3",
+    se_death: "res/Death.mp3"
 };
 
 var g_resources = [];
